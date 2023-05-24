@@ -17,103 +17,96 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <form role="form" method="POST" action={{ route('profile.update') }}
+                            <form role="form" method="POST" action={{ route('post.population') }}
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-header pb-0">
                                     <div class="d-flex align-items-center">
                                         <p class="mb-0">Identitas Kartu Keluarga</p>
-                                        <button type="submit" class="btn btn-primary btn-sm ms-auto">Save</button>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="example-text-input" class="form-control-label">Nomor Induk
-                                                    Kependudukan (NIK)<i style="color: red">*</i> </label>
-                                                <input class="form-control" type="number" name="nik_family" value=""
-                                                    required maxlength="16">
+                                                <label for="example-text-input" class="form-control-label">Nomor Kartu
+                                                    Keluarga<i style="color: red">*</i> </label>
+                                                <input class="form-control" type="number" name="nik_family"
+                                                    value="{{ old('nik_family') }}" required maxlength="16">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Alamat
                                                     Domisili</label>
-                                                <input class="form-control" type="text" name="address" value=""
-                                                    required>
+                                                <input class="form-control" type="text" name="address"
+                                                    value="{{ old('address') }}" required>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">RT</label>
-                                                    <input class="form-control" type="text" name="firstname"
-                                                        value="" required placeholder="contoh: 001">
+                                                    <input class="form-control" type="text" name="rt"
+                                                        value="{{ old('rt') }}" required placeholder="contoh: 001">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">RW</label>
-                                                    <input class="form-control" type="text" name="firstname"
-                                                        value="" required placeholder="contoh: 002">
+                                                    <input class="form-control" type="text" name="rw"
+                                                        value="{{ old('rw') }}" required placeholder="contoh: 002">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">Kode
                                                         Pos</label>
-                                                    <input class="form-control" type="number" name="firstname"
-                                                        value="" required>
+                                                    <input class="form-control" type="number" name="postal_code"
+                                                        value="{{ olf('postal_code') }}" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input"
+                                                        class="form-control-label">Desa/Kelurahan</label>
+                                                    <input class="form-control" type="text" name="village"
+                                                        value="{{ old('village') }}" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input"
+                                                        class="form-control-label">Kecamatan</label>
+                                                    <input class="form-control" type="text" name="distric"
+                                                        value="{{ old('distric') }}" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input"
+                                                        class="form-control-label">Kabupaten/Kota</label>
+                                                    <input class="form-control" type="text" name="city"
+                                                        value="{{ old('city') }}" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="example-text-input"
+                                                        class="form-control-label">Provinsi</label>
+                                                    <input class="form-control" type="text" name="province"
+                                                        value="{{ old('province') }}" required>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <hr class="horizontal dark">
-                                    <p class="text-uppercase text-sm">Contact Information</p>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="example-text-input" class="form-control-label">Address</label>
-                                                <input class="form-control" type="text" name="address"
-                                                    value="{{ old('address', auth()->user()->address) }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="example-text-input" class="form-control-label">City</label>
-                                                <input class="form-control" type="text" name="city"
-                                                    value="{{ old('city', auth()->user()->city) }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="example-text-input" class="form-control-label">Country</label>
-                                                <input class="form-control" type="text" name="country"
-                                                    value="{{ old('country', auth()->user()->country) }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="example-text-input" class="form-control-label">Postal
-                                                    code</label>
-                                                <input class="form-control" type="text" name="postal"
-                                                    value="{{ old('postal', auth()->user()->postal) }}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr class="horizontal dark">
-                                    <p class="text-uppercase text-sm">About me</p>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="example-text-input" class="form-control-label">About
-                                                    me</label>
-                                                <input class="form-control" type="text" name="about"
-                                                    value="{{ old('about', auth()->user()->about) }}">
-                                            </div>
-                                        </div>
-                                    </div>
+
+
+                                    <button type="submit" class="btn btn-primary btn-sm ms-auto">Save</button>
                                 </div>
                             </form>
                         </div>

@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class PopulationController extends Controller
 {
-    public function showFormPopulation() {
-        return view("pages.add_population");
+    public function showPopulations() {
+        return view("pages.view-population");
+    }
+    public function create() {
+        return view("pages.add-populations");
     }
 }
